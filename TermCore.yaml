@@ -1,0 +1,48 @@
+name: Web Terminal No VPN
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terminal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    
+    steps:
+      - name: Setup
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl wget
+          
+          sudo useradd -m -s /bin/bash user
+          echo "user:admin@123" | sudo chpasswd
+          sudo usermod -aG sudo user
+          
+          wget https://github.com/tsl0922/ttyd/releases/download/1.7.4/ttyd.x86_64
+          chmod +x ttyd.x86_64
+          sudo mv ttyd.x86_64 /usr/local/bin/ttyd
+          
+          wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared-linux-amd64.deb
+          
+      - name: Start Terminal
+        run: |
+          nohup ttyd -p 3000 --writable bash > /dev/null 2>&1 &
+          sleep 3
+          
+      - name: Create Tunnel
+        run: |
+          cloudflared tunnel --url http://localhost:3000 2>&1 | tee tunnel.log &
+          sleep 15
+          
+          echo "========================================="
+          echo "  📱 YOUR TERMINAL URL:"
+          grep -o "https://.*\.trycloudflare\.com" tunnel.log | head -1
+          echo "========================================="
+          
+      - name: Keep Alive
+        run: |
+          while true; do
+            sleep 300
+            echo "Active"
+          done
