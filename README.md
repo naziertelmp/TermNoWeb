@@ -1,8 +1,6 @@
 # 💻 WebTerm - Linux Terminal in Your Browser
 
-<p align="center">
-  <img src="https://img.shields.io/badge/WebTerm-Browser%20Terminal-blue?style=for-the-badge&logo=linux&logoColor=white" alt="WebTerm">
-</p>
+<p align="center"><img src="logo.svg" width="150" alt="Project Logo"></p>
 
 <p align="center">
   <b>⚡ Free Linux Terminal - Access from Any Browser, No VPN Required</b>
