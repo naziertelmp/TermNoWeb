@@ -41,6 +41,6 @@
   <circle cx="80" cy="32" r="3" fill="#ff0000" opacity="0.3" />
   <circle cx="120" cy="32" r="3" fill="#ff0000" opacity="0.3" />
 
-  <!-- Project name (change as needed) -->
+  <!-- Project name -->
   <text x="100" y="188" font-family="monospace" font-size="20" font-weight="bold" fill="#ff0000" text-anchor="middle">WebTerm</text>
 </svg>
