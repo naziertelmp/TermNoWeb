@@ -24,15 +24,6 @@
 - 🛠️ **Root Access** - Full sudo privileges
 - 🔗 **Instant Link** - Get a URL and connect
 
-## ⚠️ Important Notes
-
-- 💾 All data is **temporary**
-- 🔗 Link changes each session
-- 🎓 For educational purposes
-- 📵 Don't abuse - respect GitHub's limits
-
----
-
 ## 🛠️ Tech Stack
 
 - **OS**: Ubuntu
